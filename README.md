@@ -14,6 +14,8 @@ A multi-page static hacker-style website showcasing popular cybersecurity tools 
 - Fully static (HTML, CSS, JavaScript only)
 
 ## 📁 Project Structure
+
+```
 HackStack/
 │
 ├── index.html # Terminal boot screen
@@ -23,7 +25,7 @@ HackStack/
 ├── metasploit.html # Metasploit module page
 ├── wireshark.html # Wireshark module page
 └── README.md
-
+```
 
 ## 🚀 How to Run
 1. Download or clone the project.
