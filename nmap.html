@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HackStack | Nmap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #00ff9c;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .header {
+      padding: 20px;
+      border-bottom: 1px solid #00ff9c;
+      text-align: center;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      border-left: 4px solid #00ff9c;
+      padding-left: 10px;
+      margin-top: 40px;
+    }
+
+    .terminal {
+      background: #020202;
+      border: 1px solid #00ff9c;
+      padding: 15px;
+      margin-top: 10px;
+      box-shadow: 0 0 10px #00ff9c;
+      white-space: pre-wrap;
+    }
+
+    .scan {
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, #00ff9c, transparent);
+      animation: scan 2s infinite;
+      margin: 20px 0;
+    }
+
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .cmd {
+      color: #00ffaa;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 16px;
+      border: 1px solid #00ff9c;
+      text-decoration: none;
+      color: #00ff9c;
+    }
+
+    .btn:hover {
+      background: #00ff9c;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>NMAP – Network Mapper</h1>
+  <p>Reconnaissance & Enumeration Framework</p>
+</div>
+
+<div class="container">
+
+  <h2>What is Nmap?</h2>
+  <p>
+    Nmap (Network Mapper) is a powerful open-source tool used for:
+    network discovery, port scanning, service detection, and OS fingerprinting.
+    It is the first weapon in a Red Teamer’s arsenal.
+  </p>
+
+  <div class="scan"></div>
+
+  <h2>Common Scanning Commands</h2>
+  <div class="terminal">
+<span class="cmd"># Basic Scan</span>
+nmap 192.168.1.1
+
+<span class="cmd"># Stealth SYN Scan</span>
+nmap -sS target.com
+
+<span class="cmd"># Service & Version Detection</span>
+nmap -sV target.com
+
+<span class="cmd"># OS Detection</span>
+nmap -O target.com
+
+<span class="cmd"># Full Port Scan</span>
+nmap -p- target.com
+  </div>
+
+  <h2>Sample Output</h2>
+  <div class="terminal">
+Starting Nmap 7.94
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+443/tcp  open  https
+3306/tcp open  mysql
+
+Device type: general purpose
+Running: Linux 5.X
+OS details: Linux 5.4 - 5.15
+  </div>
+
+  <h2>Attack Phase Mapping</h2>
+  <div class="terminal">
+[ Reconnaissance ]  → Host discovery, ping scan  
+[ Enumeration ]    → Open ports, services, versions  
+[ Vulnerability ]  → Feed results into Metasploit / Burp  
+  </div>
+
+  <a class="btn" href="tools.html">← Back to Tools</a>
+  <a class="btn" href="index.html">Home</a>
+
+</div>
+
+</body>
+</html>

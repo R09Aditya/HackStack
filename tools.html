@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>HackStack | Tool Arsenal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #00ff9c;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid #00ff9c;
+      box-shadow: 0 0 10px #00ff9c;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      padding: 40px;
+    }
+
+    .tool {
+      border: 1px solid #00ff9c;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .tool:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ff9c;
+      background: rgba(0, 255, 156, 0.05);
+    }
+
+    .tool h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .tool p {
+      font-size: 13px;
+      opacity: 0.8;
+      margin-top: 8px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #00ff9c;
+    }
+
+    .back {
+      margin: 20px;
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid #00ff9c;
+    }
+
+    .back:hover {
+      background: #00ff9c;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>HackStack Tool Arsenal</h1>
+    <p>Select a module to load</p>
+  </div>
+
+  <div class="grid">
+
+    <a href="nmap.html">
+      <div class="tool">
+        <h2>NMAP</h2>
+        <p>Network scanning & reconnaissance.</p>
+      </div>
+    </a>
+
+    <a href="burp.html">
+      <div class="tool">
+        <h2>BURP SUITE</h2>
+        <p>Web interception & exploitation.</p>
+      </div>
+    </a>
+
+    <a href="metasploit.html">
+      <div class="tool">
+        <h2>METASPLOIT</h2>
+        <p>Exploit framework & payload delivery.</p>
+      </div>
+    </a>
+
+    <a href="wireshark.html">
+      <div class="tool">
+        <h2>WIRESHARK</h2>
+        <p>Packet capture & traffic analysis.</p>
+      </div>
+    </a>
+
+    <a href="john.html">
+      <div class="tool">
+        <h2>JOHN</h2>
+        <p>Offline password hash cracking.</p>
+      </div>
+    </a>
+
+    <a href="aircrack.html">
+      <div class="tool">
+        <h2>AIRCRACK-NG</h2>
+        <p>Wi-Fi auditing & WPA key cracking.</p>
+      </div>
+    </a>
+
+    <a href="sqlmap.html">
+      <div class="tool">
+        <h2>SQLMAP</h2>
+        <p>Automated SQL injection exploitation.</p>
+      </div>
+    </a>
+
+    <a href="hydra.html">
+      <div class="tool">
+        <h2>HYDRA</h2>
+        <p>Online brute-force attack engine.</p>
+      </div>
+    </a>
+
+  </div>
+
+  <a class="back" href="index.html">← Back to Terminal</a>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HackStack | Burp Suite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #00ff9c;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid #00ff9c;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h2 {
+      border-left: 4px solid #00ff9c;
+      padding-left: 10px;
+      margin-top: 40px;
+    }
+
+    .terminal {
+      background: #020202;
+      border: 1px solid #00ff9c;
+      padding: 15px;
+      margin-top: 10px;
+      box-shadow: 0 0 10px #00ff9c;
+      white-space: pre-wrap;
+    }
+
+    .http-flow {
+      border: 1px dashed #00ff9c;
+      padding: 15px;
+      margin: 20px 0;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 5px #00ff9c; }
+      to { box-shadow: 0 0 15px #00ff9c; }
+    }
+
+    .cmd {
+      color: #00ffaa;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 16px;
+      border: 1px solid #00ff9c;
+      text-decoration: none;
+      color: #00ff9c;
+    }
+
+    .btn:hover {
+      background: #00ff9c;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>BURP SUITE</h1>
+  <p>Web Application Interception & Exploitation Platform</p>
+</div>
+
+<div class="container">
+
+  <h2>What is Burp Suite?</h2>
+  <p>
+    Burp Suite is an integrated platform for performing security testing of web applications.
+    It acts as a Man-in-the-Middle proxy, allowing you to intercept, inspect, modify, and replay
+    HTTP/HTTPS requests.
+  </p>
+
+  <h2>Intercepted Request Flow</h2>
+  <div class="http-flow terminal">
+<span class="cmd">GET</span> /login HTTP/1.1
+Host: vulnerable-site.com
+User-Agent: Mozilla/5.0
+Cookie: session=8f7a1c9e2b
+
+→ Modified by attacker →
+
+<span class="cmd">POST</span> /login HTTP/1.1
+username=admin'--&password=anything
+  </div>
+
+  <h2>Common Burp Tools</h2>
+  <div class="terminal">
+[ Proxy ]     → Intercept & modify requests  
+[ Repeater ]  → Replay requests for testing  
+[ Intruder ]  → Brute force & fuzzing  
+[ Scanner ]   → Automated vulnerability scan  
+[ Decoder ]   → Encode/Decode payloads  
+  </div>
+
+  <h2>Attack Phase Mapping</h2>
+  <div class="terminal">
+[ Information Gathering ] → Crawl, map application  
+[ Vulnerability Testing ] → SQLi, XSS, Auth bypass  
+[ Exploitation ] → Session hijacking, logic flaws  
+  </div>
+
+  <a class="btn" href="tools.html">← Back to Tools</a>
+  <a class="btn" href="index.html">Home</a>
+
+</div>
+
+</body>
+</html>

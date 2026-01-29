@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HackStack | Hydra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #00ff9c;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid #00ff9c;
+      box-shadow: 0 0 10px #00ff9c;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h2 {
+      border-left: 4px solid #00ff9c;
+      padding-left: 10px;
+      margin-top: 40px;
+    }
+
+    .terminal {
+      background: #020202;
+      border: 1px solid #00ff9c;
+      padding: 15px;
+      margin-top: 10px;
+      box-shadow: 0 0 12px #00ff9c;
+      white-space: pre-wrap;
+      font-size: 14px;
+    }
+
+    .brute-bar {
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #00ff9c, transparent);
+      animation: brute 1.2s infinite;
+      margin: 20px 0;
+    }
+
+    @keyframes brute {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .cmd {
+      color: #00ffaa;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 16px;
+      border: 1px solid #00ff9c;
+      text-decoration: none;
+      color: #00ff9c;
+    }
+
+    .btn:hover {
+      background: #00ff9c;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>HYDRA</h1>
+  <p>Fast Network Login Bruteforce Tool</p>
+</div>
+
+<div class="container">
+
+  <h2>What is Hydra?</h2>
+  <p>
+    THC Hydra is a powerful online password cracking tool used to perform
+    brute-force and dictionary attacks against remote authentication services
+    such as SSH, FTP, HTTP, RDP, SMB, and more.
+  </p>
+
+  <div class="brute-bar"></div>
+
+  <h2>Common Hydra Commands</h2>
+  <div class="terminal">
+<span class="cmd"># SSH Bruteforce</span>
+hydra -l root -P rockyou.txt ssh://192.168.1.10
+
+<span class="cmd"># FTP Login Attack</span>
+hydra -L users.txt -P pass.txt ftp://target.com
+
+<span class="cmd"># HTTP Form Bruteforce</span>
+hydra -L users.txt -P pass.txt target.com http-post-form "/login.php:user=^USER^&pass=^PASS^:Invalid"
+
+<span class="cmd"># RDP Attack</span>
+hydra -t 4 -V -f -L users.txt -P pass.txt rdp://192.168.1.5
+  </div>
+
+  <h2>Sample Output</h2>
+  <div class="terminal">
+[22][ssh] host: 192.168.1.10   login: admin   password: admin@123
+[STATUS] attack finished for 192.168.1.10
+1 valid password found
+  </div>
+
+  <h2>Attack Phase Mapping</h2>
+  <div class="terminal">
+[ Credential Access ] → Online brute-force & dictionary attacks  
+[ Initial Access ] → Compromised remote services  
+[ Lateral Movement ] → Reused credentials on multiple hosts  
+  </div>
+
+  <a class="btn" href="tools.html">← Back to Tools</a>
+  <a class="btn" href="index.html">Home</a>
+
+</div>
+
+</body>
+</html>

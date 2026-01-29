@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HackStack | Wireshark</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #00ff9c;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid #00ff9c;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h2 {
+      border-left: 4px solid #00ff9c;
+      padding-left: 10px;
+      margin-top: 40px;
+    }
+
+    .terminal {
+      background: #020202;
+      border: 1px solid #00ff9c;
+      padding: 15px;
+      margin-top: 10px;
+      box-shadow: 0 0 12px #00ff9c;
+      white-space: pre-wrap;
+      font-size: 14px;
+    }
+
+    .packet-stream {
+      position: relative;
+      height: 4px;
+      background: #003d2a;
+      overflow: hidden;
+      margin: 25px 0;
+    }
+
+    .packet {
+      position: absolute;
+      width: 120px;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, #00ff9c, transparent);
+      animation: flow 2s linear infinite;
+    }
+
+    @keyframes flow {
+      0% { left: -120px; }
+      100% { left: 100%; }
+    }
+
+    .cmd {
+      color: #00ffaa;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 16px;
+      border: 1px solid #00ff9c;
+      text-decoration: none;
+      color: #00ff9c;
+    }
+
+    .btn:hover {
+      background: #00ff9c;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>WIRESHARK</h1>
+  <p>Network Traffic Capture & Protocol Analysis</p>
+</div>
+
+<div class="container">
+
+  <h2>What is Wireshark?</h2>
+  <p>
+    Wireshark is the world’s most widely used network protocol analyzer.
+    It allows security analysts to capture live packets, inspect protocols,
+    detect anomalies, and perform network forensics.
+  </p>
+
+  <div class="packet-stream">
+    <div class="packet"></div>
+  </div>
+
+  <h2>Captured Packet Example</h2>
+  <div class="terminal">
+Frame 1024: 1514 bytes on wire
+Ethernet II, Src: 00:1A:2B:3C:4D:5E, Dst: 08:00:27:AA:BB:CC
+Internet Protocol Version 4, Src: 192.168.1.10, Dst: 192.168.1.1
+Transmission Control Protocol, Src Port: 52344, Dst Port: 80
+Hypertext Transfer Protocol
+<span class="cmd">GET</span> /login HTTP/1.1
+Host: vulnerable-site.com
+Cookie: PHPSESSID=4f7c92ab1d
+  </div>
+
+  <h2>Common Analysis Filters</h2>
+  <div class="terminal">
+<span class="cmd">http</span>               → Show only HTTP traffic  
+<span class="cmd">tcp.port == 80</span>     → Filter port 80  
+<span class="cmd">ip.addr == 192.168.1.1</span> → Specific host  
+<span class="cmd">dns</span>                → DNS queries  
+<span class="cmd">tcp.flags.syn == 1</span> → SYN scan detection  
+  </div>
+
+  <h2>Attack Phase Mapping</h2>
+  <div class="terminal">
+[ Packet Capture ] → Monitor raw network traffic  
+[ Protocol Analysis ] → Detect credentials, sessions  
+[ Forensics ] → Trace attacker movement & exfiltration  
+  </div>
+
+  <a class="btn" href="tools.html">← Back to Tools</a>
+  <a class="btn" href="index.html">Home</a>
+
+</div>
+
+</body>
+</html>

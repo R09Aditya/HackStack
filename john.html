@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HackStack | John the Ripper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #00ff9c;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 1px solid #00ff9c;
+      box-shadow: 0 0 10px #00ff9c;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h2 {
+      border-left: 4px solid #00ff9c;
+      padding-left: 10px;
+      margin-top: 40px;
+    }
+
+    .terminal {
+      background: #020202;
+      border: 1px solid #00ff9c;
+      padding: 15px;
+      margin-top: 10px;
+      box-shadow: 0 0 12px #00ff9c;
+      white-space: pre-wrap;
+      font-size: 14px;
+    }
+
+    .crack-bar {
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #00ff9c, transparent);
+      animation: crack 1.5s infinite;
+      margin: 20px 0;
+    }
+
+    @keyframes crack {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .cmd {
+      color: #00ffaa;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 16px;
+      border: 1px solid #00ff9c;
+      text-decoration: none;
+      color: #00ff9c;
+    }
+
+    .btn:hover {
+      background: #00ff9c;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>JOHN THE RIPPER</h1>
+  <p>Password Hash Cracking Engine</p>
+</div>
+
+<div class="container">
+
+  <h2>What is John the Ripper?</h2>
+  <p>
+    John the Ripper is a powerful open-source password cracking tool used to
+    detect weak passwords by performing dictionary, brute-force, and hybrid attacks
+    against password hashes.
+  </p>
+
+  <div class="crack-bar"></div>
+
+  <h2>Common Cracking Commands</h2>
+  <div class="terminal">
+<span class="cmd"># Crack Linux shadow file</span>
+john /etc/shadow
+
+<span class="cmd"># Use wordlist</span>
+john --wordlist=rockyou.txt hashes.txt
+
+<span class="cmd"># Show cracked passwords</span>
+john --show hashes.txt
+
+<span class="cmd"># Incremental brute force</span>
+john --incremental hashes.txt
+  </div>
+
+  <h2>Sample Output</h2>
+  <div class="terminal">
+Loaded 3 password hashes with 3 different salts
+Press 'q' or Ctrl-C to abort, almost any other key for status
+password123       (admin)
+letmein           (user)
+iloveyou          (test)
+Session completed
+  </div>
+
+  <h2>Attack Phase Mapping</h2>
+  <div class="terminal">
+[ Credential Access ] → Offline hash cracking  
+[ Privilege Escalation ] → Reused weak passwords  
+[ Lateral Movement ] → Password reuse across systems  
+  </div>
+
+  <a class="btn" href="tools.html">← Back to Tools</a>
+  <a class="btn" href="index.html">Home</a>
+
+</div>
+
+</body>
+</html>
